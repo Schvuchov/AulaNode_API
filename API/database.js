@@ -13,17 +13,17 @@ dotenv.config()  //para trazer a url q esta em dotenv, esta la para proteger a s
  //       console.log('Banco conectado com sucesso')
  //   }
 //})
-
 //export { database }
 
 import {Sequelize} from 'sequelize'
 
-//const sequelize = new Sequelize(process.env.BANCO_DE_DADOS)
+const sequelize = new Sequelize(process.env.BANCO_DE_DADOS)
 
-const sequelize = new Sequelize(process.env.USUARIO, process.env.USUARIO, process.env.SENHA, {
-    host: 'silly.db.elephantsql.com',
-    dialect: 'postgres'
-})
+//outra forma para a versao nova
+// const sequelize = new Sequelize(process.env.USUARIO, process.env.USUARIO, process.env.SENHA, {
+//     host: 'silly.db.elephantsql.com',
+//     dialect: 'postgres'
+// })
 
 try {
     await sequelize.authenticate() 

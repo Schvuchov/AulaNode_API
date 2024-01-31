@@ -14,6 +14,7 @@ const Heroi = sequelize.define('Heroi', {
     pontosDePoder: {
         type: DataTypes.FLOAT
     }
+    
 })
 
 export { Heroi }
