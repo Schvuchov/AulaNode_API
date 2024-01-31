@@ -1,7 +1,9 @@
 // Importação de pacotes e arquivos
 import express from 'express'
 import {router} from './routes/compras.js'
+import { sequelize } from './database.js'
 
+sequelize.sync()
 
 // Inicializando o pacote express
 const app = express()

@@ -1,8 +1,8 @@
 //trazendo um banco de dados atraves da url do elephantsql
 
 //import pg from 'pg'
-//import dotenv from 'dotenv'
-//dotenv.config()  //para trazer a url q esta em dotenv, esta la para proteger a senha
+import dotenv from 'dotenv'
+dotenv.config()  //para trazer a url q esta em dotenv, esta la para proteger a senha
 
 //const database = new pg.Client(process.env.BANCO_DE_DADOS)
 
@@ -19,7 +19,8 @@
 import {Sequelize} from 'sequelize'
 
 //const sequelize = new Sequelize(process.env.BANCO_DE_DADOS)
-const sequelize = new Sequelize('keuqldsi', 'keuqldsi', 'd_yOVo2nh2xoMAyvbZogXMKu1Rg39XWx', {
+
+const sequelize = new Sequelize(process.env.USUARIO, process.env.USUARIO, process.env.SENHA, {
     host: 'silly.db.elephantsql.com',
     dialect: 'postgres'
 })
