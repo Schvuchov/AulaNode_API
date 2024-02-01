@@ -24,7 +24,7 @@ const criarHeroi = async (req, res) => {
         const resultado = await Heroi.create(novoHeroi)
         res.status(201).send({ message: 'Heroi criado com sucesso', data: resultado })
     } catch (err) {
-        res.satus(500).send({ message: 'Houve um erro na criação' })
+        res.status(500).send({ message: 'Houve um erro na criação' })
     }
 }
 
