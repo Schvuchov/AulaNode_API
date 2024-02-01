@@ -1,6 +1,6 @@
 # AulaNode_API
 
-  - Começando:
+ Começando:
     1 - Criar uma pasta e iniciar o projeto digitando no terminal: npm init –y
     2 - Instalar as dependencias: npm install express pg dotenv
     3 - Criar o arquivo app.js e pastas controllers e routes
