@@ -28,7 +28,7 @@ const criarHeroi = async (req, res) => {
     }
 }
 
-const getHerois = async(req, res) => {
+const getHerois = async (req, res) => {
     try {
         const herois = await Heroi.findAll()
         //findByPk(numero)       outros find
@@ -40,4 +40,52 @@ const getHerois = async(req, res) => {
 
 }
 
-export { getHerois, criarHeroi }
+const atualizarHeroi = async (req, res) => {
+    try {
+        const id = req.params.id
+        const { nome, pontosDePoder } = req.body
+
+        if (!nome || !pontosDePoder || !id) {
+            res.status(400).send({ message: 'Dados incompletos' })
+        }
+        const heroiAtualizado = { nome, pontosDePoder }
+        const resultado = await Heroi.update(heroiAtualizado, { where: { id: id } })
+        res.status(200).send({ message: 'Heroi atualizado', resultado: resultado })
+    } catch (err) {
+        res.status(500).send({ message: 'Erro na atualizacao' })
+    }
+}
+
+const apagarHeroi = async (req, res) => {
+    try {
+        const id = req.params.id
+        if (!id) {
+            return res.status(404).send({ message: 'Id nao informado' })
+        }
+        await Heroi.destroy({ where: { id: id } })
+        res.status(200).send({ message: 'Heroi excluido' })
+    } catch (err) {
+        res.status(500).send({ message: 'Erro ao excluir heroi' })
+    }
+}
+
+const getHeroisPeloId = async (req, res) => {
+    try {
+        const { id } = req.params
+        if (!id) {
+            return res.status(400).send({ message: 'Id nao informado' })
+        }
+        //const heroi = await Heroi.findByPk(id)
+        const heroi = await Heroi.findOne({ where: { id } })
+        if(heroi){
+            res.status(200).send({ message: 'Heroi encontrado', heroi })
+        } else {
+            res.status(204).send({message:'Heroi nao encontrado'})
+        }
+        
+    } catch (err) {
+        res.status(500).send({ message: 'Erro ao buscar heroi' })
+    }
+}
+
+export { getHerois, criarHeroi, atualizarHeroi, apagarHeroi, getHeroisPeloId }
