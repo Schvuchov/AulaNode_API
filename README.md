@@ -14,3 +14,11 @@
    - Em routes vamos definir as rotas que estarão disponíveis e as ações que elas
 irão ativar (controllers). Utilizaremos o método Router do express e exportamos as rotas configuradas.
    - Em controllers, temos as funções que vão receber a requisição e dar a resposta ao usuário.
+
+  Sequelize:
+  - npm i sequelize
+  - criar a conexão com o banco de dados no arquivo database.js:
+    import {Sequelize} from 'sequelize'
+    const sequelize = new Sequelize(process.env.BANCO_DE_DADOS)
+  - verificar se a conexão foi bem sucedida: authenticate
+  
