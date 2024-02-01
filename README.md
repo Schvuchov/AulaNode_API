@@ -9,7 +9,8 @@
    - Incluir também o script de start no package.json: "scripts": {"start": "node --watch app.js"},
 
 
-  - O app/server ficará responsável por iniciar por iniciar o servidor express e se comunica com o arquivo que contem os caminhos para os recursos (rotas).
-  - Em routes vamos definir as rotas que estarão disponíveis e as ações que elas
+ Conexão entre os arquivos:
+   - O app/server ficará responsável por iniciar por iniciar o servidor express e se comunica com o arquivo que contem os caminhos para os recursos (rotas).
+   - Em routes vamos definir as rotas que estarão disponíveis e as ações que elas
 irão ativar (controllers). Utilizaremos o método Router do express e exportamos as rotas configuradas.
-  - Em controllers, temos as funções que vão receber a requisição e dar a resposta ao usuário.
+   - Em controllers, temos as funções que vão receber a requisição e dar a resposta ao usuário.
