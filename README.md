@@ -18,7 +18,14 @@ irão ativar (controllers). Utilizaremos o método Router do express e exportamo
   Sequelize:
   - npm i sequelize
   - criar a conexão com o banco de dados no arquivo database.js:
-    import {Sequelize} from 'sequelize'
-    const sequelize = new Sequelize(process.env.BANCO_DE_DADOS)
+    
+     import {Sequelize} from 'sequelize'
+     const sequelize = new Sequelize(process.env.BANCO_DE_DADOS)
+    
   - verificar se a conexão foi bem sucedida: authenticate
   
+
+  Modelos:
+  - Criar a pasta models contendo um arquivo para cada tabela do banco de dados,
+onde serão definidas as colunas da tabela, os tipos de dados e com outras tabelas. A criação de model com sequelize é feita pelo método define().
+  - Após a criação dos models, o método sync() no arquivo app.js realiza a criação das tabelas tabelas do banco de dados. 
